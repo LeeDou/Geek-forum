@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title><%= title%></title>
-	<link rel="stylesheet" href="/stylesheets/index.css">
-	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
-	<script type="text/javascript" src="/javascripts/admin.js"></script>
-</head>
-<body>
-	<div class="header">
-		
-		
-		<div class="context">
-		<!-- 页面logo -->
-			<h1 class="logo">GEEK FORUM</h1>
-			<!-- 页面搜索 -->
-			<div class="search" action="">
-				<form action="get" >		
-					<input type="text" class="searchInput">
-					<input type="button" class="searchButton" value="搜索">			
-				</form>
-			</div>	
-			<div class="nav">
-				<ul>
-					<li><a href='/'>首页</a></li>
-					<li><a href="/display">写文章</a></li>
-					<% if(user) { %>
-						<li><a href="#"><%= user.name%></a></li>
-						<li><a href='/signout'>退出</a></li>
-					<% } else { %>	
-					
-						<li><a href="/signin">登录</a></li>
-						<li><a href='/register'>注册</a></li>
-					<% } %>
-				</ul>
-			</div>
-		</div>	
-	</div>
-
+<%- include header %>
 	<div class="Mcontent" id="Mcontent">
 		<div class="main">
 			<div class="article">
@@ -79,11 +40,10 @@
 						</form>
 					</div>
 				</div>	
-				<% } %>
-				
+				<% } %>				
 			</div>	
 		</div>
-		<div class="information">
+		<div class="information">	
 			<% if(user) { %>
 			<p class="name">姓名:<%=user.name %></p>
 			<p class="message">消息</p>
@@ -96,8 +56,5 @@
 				<% } %>
 			</ol>
 			<% } %>	
-		</div>
-		
-	</div>
-</body>
-</html>
+		</div>		
+<%- include botton %>	
