@@ -163,7 +163,7 @@ module.exports = function(app) {
 
   // 退出
   app.get('/signout',function(req,res){
-    req.session.user='';
+    req.session.user=null;
     app.locals.session='';
     res.redirect('/');
   });
@@ -172,7 +172,7 @@ module.exports = function(app) {
   // 文章详情页
   app.get('/articleDetail/article',siginRequired,function(req,res){
     var id =req.query.id;
-    Article.findOne({title:id},function(err,article){      
+    Article.findOne({_id:id},function(err,article){      
         if (err) {
           console.log(err);
         }
