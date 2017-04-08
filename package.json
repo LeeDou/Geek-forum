@@ -1,0 +1,31 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "ejs": "*",
+    "express": "3.0.6",
+    "underscore": "^1.8.3"
+  },
+  "description": "一个极客论坛社区，前端采用html+css+jQuery，服务端用Node，数据库使用MongonDB",
+  "main": "app.js",
+  "devDependencies": {
+    "mongoose": "^4.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeDou/Geek-forum.git"
+  },
+  "keywords": [
+    "kantle"
+  ],
+  "author": "kanle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeeDou/Geek-forum/issues"
+  },
+  "homepage": "https://github.com/LeeDou/Geek-forum#readme"
+}

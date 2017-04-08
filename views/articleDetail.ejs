@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title%></title>
+	<link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body>
+	<div class="header">
+		<div class="context">
+		<!-- 页面logo -->
+			<h1 class="logo">GEEK FORUM</h1>
+			<!-- 页面搜索 -->
+			<div class="search" action="">
+				<form action="get" >		
+					<input type="text" class="searchInput">
+					<input type="button" class="searchButton" value="搜索">			
+				</form>
+			</div>	
+			<div class="nav">
+				<ul>
+					<li><a href='/'>首页</a></li>
+					<li><a href="/display">写文章</a></li>
+					<% if(user) { %>
+						<li><a href="#"><%= user.name%></a></li>
+						<li><a href='/signout'>退出</a></li>
+					<% } else { %>	
+					
+						<li><a href="/signin">登录</a></li>
+						<li><a href='/register'>注册</a></li>
+					<% } %>
+				</ul>
+			</div>
+		</div>	
+	</div>
+
+	<div class="Mcontent" id="Mcontent">
+		<div class="main">
+			<h3 class="articleTitle"><%=articles.title %></h3>
+		<div class="essayMessage">		
+			<a href="#">发表时间:</a>
+			<a href="#">作者：<%=articles.author %></a>
+		</div>
+		<div calss='essayDetail'>
+			<%=articles.essayText %>
+	
+	</div>
+</body>
+</html>

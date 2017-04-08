@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title%></title>
+	<link rel="stylesheet" href="/stylesheets/index.css">
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/admin.js"></script>
+</head>
+<body>
+	<div class="header">
+		
+		
+		<div class="context">
+		<!-- 页面logo -->
+			<h1 class="logo">GEEK FORUM</h1>
+			<!-- 页面搜索 -->
+			<div class="search" action="">
+				<form action="get" >		
+					<input type="text" class="searchInput">
+					<input type="button" class="searchButton" value="搜索">			
+				</form>
+			</div>	
+			<div class="nav">
+				<ul>
+					<li><a href='/'>首页</a></li>
+					<li><a href="/display">写文章</a></li>
+					<% if(user) { %>
+						<li><a href="#"><%= user.name%></a></li>
+						<li><a href='/signout'>退出</a></li>
+					<% } else { %>	
+					
+						<li><a href="/signin">登录</a></li>
+						<li><a href='/register'>注册</a></li>
+					<% } %>
+				</ul>
+			</div>
+		</div>	
+	</div>
+
+	<div class="Mcontent" id="Mcontent">
+		<div class="main">
+			<div class="article">
+			    <% for( i=0, len=article.length;i<len;i++) { %>
+				<% item=article[i] %>
+				<% lee='item_' + item._id %>
+				<div id="<%=lee %>" class='<%=lee %>'>
+					<h2 class="essay"><%= item.title %></h2>
+					<span class="time">2016/3/30</span>
+					<span class="author">来自：<%= item.author%></span>
+					<p class="Atext"><%= item.essayText%></p>
+					<div class="feedmeta">
+						<a href="javascript:void(0)" class="">评论</a>
+						<a href="/articleDetail/article?id=<%=item.title %>" class="check">阅读原文</a>
+						<a href="javascript:void(0)" class="del" name="<%=item._id %>" title="<%=item.title %>">删除</a>
+					</div>
+					
+					<div class="comment">
+						<% for(j=0,len1=comment.length;j<len1;j++ ) {  %>
+						<% if(comment[j].cTitle==item.title) { %>
+							
+							<div class="commentlist">
+								<i class="commentName"><%= comment[j].cAuthor %>：</i><p class="commentText"><%= comment[j].content %></p>
+							</div>	
+							
+						<% } %>	
+						<% } %>				
+					</div>
+					<div class="textarea">
+						<form action="/admin/commentlist" method="post" name="comment">
+							<input type="hidden" value="<%= item.title %>" name="comment[cTitle]">
+							<% if (user) { %>
+							<input type="hidden" value="<%= user.name %>" name="comment[cAuthor]">
+							<% } else {%>
+							<input type="hidden" value=" " name="comment[cAuthor]">
+							<% } %>
+							<textarea rows="2" cols="60" name="comment[content]"></textarea>
+							<input type="reset" name="取消"><input type="submit" name="提交">
+						</form>
+					</div>
+				</div>	
+				<% } %>
+				
+			</div>	
+		</div>
+		<div class="information">
+			<% if(user) { %>
+			<p class="name">姓名:<%=user.name %></p>
+			<p class="message">消息</p>
+			<p class="publishArticle">发表的文章:</p>
+			<ol>
+				<% for(k=article.length-1;k>=0;k--) { %>
+				   <% if(article[k].author == user.name) { %>
+				     	<li><%= article[k].title%></li>
+				   <% } %>
+				<% } %>
+			</ol>
+			<% } %>	
+		</div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	color: #CBD368;
+	text-decoration: none;
+}
+a:hover{
+	color: #415B5B;
+}
+body{
+	background-color: #fff;
+	width: 100%;
+}
+.header{
+	width: 100%;
+	height: 80px;
+	background-color:#3F3434; 
+}
+.context{
+	position: relative;
+	width: 960px;
+	height: 80px;
+	margin: 0 auto;
+	}
+	
+.logo{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 230px;
+	height: 80px;
+	line-height: 80px;
+}
+.search{
+	position: absolute;
+	left: 280px;
+	top: 0;
+	width: 250px;
+	height: 80px;
+	line-height: 80px;
+	color: #FFFFFF;
+}
+.search .searchInput{
+	width: 200px;
+	height: 30px;
+	
+
+}
+.search .searchButton{
+	/*display: inline-block;*/
+	/*margin-top: 15px;*/
+	margin-top: 0px;
+	margin-left: -5px;
+	vertical-align: middle;
+	line-height: 80px;
+	width: 40px;
+	height: 34px;
+}
+.nav{
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: 320px;
+	height: 80px;
+	line-height: 80px;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.nav ul li{
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+
+.Mcontent{
+	position: relative;
+	width: 960px;
+	height: 800px;
+	margin:20px auto;
+}
+.main{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70%;
+	height: auto;
+
+}
+.article{
+	width: 100%;
+	height: 260px;
+}
+.Atext{
+	margin-left: 2%;
+	text-indent: 32px;
+	width: 90%;
+	height: 104px;
+	overflow: hidden;
+}
+.comment{
+	margin-left: 10px;
+	width: 90%;
+}
+.commentName{
+	color: #3F3434;
+}
+.commentText{
+	width: 88%;
+	margin-left: 10%;
+	margin-top: -22px;
+	height: 20px;
+	overflow: hidden;
+}
+.information{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 26%;
+	height: auto;
+	margin-left: 4%;
+}
+/*.textarea{
+	display: none;
+}*/
+.hidden{
+	visibility: none;
+}
+.Econtent{
+	width: 960px;
+	height: auto;
+	margin: 20px auto;
+
+}
+.articleTitle{
+	text-align: center;
+}
+.essayMessage{
+	width: 200px;
+	height: 20px;
+	line-height: 20px;
+	margin:10px auto;
+}
+.essayDetail{
+	text-indent: 32px;
+}
