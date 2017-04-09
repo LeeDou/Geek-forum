@@ -80,22 +80,22 @@ body{
 }
 
 .Mcontent{
-	position: relative;
+	
 	width: 960px;
-	height: 800px;
+	/*height: auto;*/
 	margin:20px auto;
+	overflow: hidden;
+	zoom: 1;
 }
 .main{
-	position: absolute;
+	float: left;
 	top: 0;
 	left: 0;
 	width: 70%;
-	height: auto;
 
 }
 .article{
 	width: 100%;
-	height: 260px;
 }
 .Atext{
 	margin-left: 2%;
@@ -119,7 +119,7 @@ body{
 	overflow: hidden;
 }
 .information{
-	position: absolute;
+	float: right;
 	right: 0;
 	top: 0;
 	width: 26%;
@@ -149,4 +149,16 @@ body{
 }
 .essayDetail{
 	text-indent: 32px;
+}
+.footer{
+	width: 100%;
+	height: 80px;
+	background-color: #3F3434; 
+}
+.footer .fcontent{
+	width: 960px;
+	height: 80px;
+	margin:10px auto;
+	line-height: 80px;
+	text-align: center;
 }

@@ -9,9 +9,7 @@
 	<script type="text/javascript" src="/javascripts/admin.js"></script>
 </head>
 <body>
-	<div class="header">
-		
-		
+	<div class="header">		
 		<div class="context">
 		<!-- 页面logo -->
 			<h1 class="logo">GEEK FORUM</h1>
@@ -27,7 +25,7 @@
 					<li><a href='/'>首页</a></li>
 					<li><a href="/display">写文章</a></li>
 					<% if(user) { %>
-						<li><a href="#"><%= user.name%></a></li>
+						<li><a href="javascript:void(0)"><%= user.name%></a></li>
 						<li><a href='/signout'>退出</a></li>
 					<% } else { %>	
 					
