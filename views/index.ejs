@@ -1,8 +1,8 @@
 <%- include header %>
-	<div class="Mcontent" id="Mcontent">
+	<div class="Mcontent" id="Mcontent" style="min-height:400px;">
 		<div class="main">
 			<div class="article">
-			    <% for( i=0, len=article.length;i<len;i++) { %>
+			    <% for( i=article.length-1;i>0;i--) { %>
 				<% item=article[i] %>
 				<% lee='item_' + item._id %>
 				<div id="<%=lee %>" class='<%=lee %>'>

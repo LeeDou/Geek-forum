@@ -1,10 +1,11 @@
 <%- include header%>
-    <div class="context">
+    <div class="Dcontext">
       <h1>发表文章</h1>
       <form action="/admin/displayArticle" method= "post" name="article">
   	    文章名称：<input type="text" name="article[title]"><br />    
   	    文章内容：<textarea name="article[essayText]" rows="20" cols="60"></textarea>  <br />
   	    <input type="reset" name="重置"> &nbsp <input type="submit" name="提交">
       </form>
-    </div>  
+    </div>
+      
 <%- include botton%>
