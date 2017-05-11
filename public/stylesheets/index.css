@@ -32,9 +32,15 @@ body{
 	position: absolute;
 	left: 0;
 	top: 0;
+	font-size: 20px;
+	color: #FFFFFF;
 	width: 230px;
 	height: 80px;
 	line-height: 80px;
+}
+.Dcontext{
+	min-height: 630px;
+
 }
 .search{
 	position: absolute;
@@ -80,7 +86,7 @@ body{
 }
 
 .Mcontent{
-	
+	min-height: 800px;	
 	width: 960px;
 	/*height: auto;*/
 	margin:20px auto;

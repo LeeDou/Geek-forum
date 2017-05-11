@@ -1,6 +1,7 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , path = require('path')
   , mongoose = require('mongoose')
   , User = require('./models/user')
   , Article = require('./models/article')
@@ -17,6 +18,8 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
+
+  app.use(express.static(path.join(__dirname,'public')))
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
