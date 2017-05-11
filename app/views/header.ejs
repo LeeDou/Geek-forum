@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title><%= title%></title>
+  <meta charset="UTF-8">
+  <title><%= title%></title>
 	<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/stylesheets/<%= tag %>.css">
 	<link rel="stylesheet" href="/stylesheets/common.css">
@@ -11,23 +11,18 @@
 	<script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>	
 </head>
 <body>
-	<div class="header">		
-		<div class="context">
-		<!-- 页面logo -->
-			<h1 class="logo">geek</h1>
-			<div class="nav">
-				<ul>
-					<li><a href='/'>首页</a></li>
-					<li><a href="/display">写文章</a></li>
-					<% if(user) { %>
-						<li><a href="javascript:void(0)"><%= user.name%></a></li>
-						<li><a href='/signout'>退出</a></li>
-					<% } else { %>	
-					
-						<li><a href="/signin">登录</a></li>
-						<li><a href='/register'>注册</a></li>
+	 <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="/">首页</a>
+          <a class="blog-nav-item" href="/display">写文章</a>
+          <% if(user) { %>
+						<a class="blog-nav-item" href="javascript:void(0)">欢迎您 <%= user.name%></a>
+						<a class="blog-nav-item" href='/signout'>退出</a>
+					<% } else { %>						
+						<a class="blog-nav-item" href="/signin">登录</a>
+						<a class="blog-nav-item" href='/register'>注册</a>
 					<% } %>
-				</ul>
-			</div>
-		</div>	
-	</div>
+        </nav>
+      </div>
+    </div>
