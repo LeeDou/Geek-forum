@@ -1,33 +1,20 @@
-<!-- 头部 -->
+<!-- 共用头部 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title><%= title%></title>
 	<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/<%= tag %>.css">
+	<link rel="stylesheet" href="/stylesheets/common.css">
 	<script type="text/javascript" src="/libs/jquery/dist/jquery.min.js"></script>
-	<script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/javascripts/admin.js"></script>
+	<script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>	
 </head>
 <body>
 	<div class="header">		
 		<div class="context">
 		<!-- 页面logo -->
-			<div class="container">
-				<div class="row">
-
-					<div class="col-md-4" style="backgroundColor:'red'">就是这个样子</div>
-					<div class="col-md-8">快来看看吧</div>
-				</div>
-			</div>
-			<h1 class="logo">GEEK FORUM</h1>
-			<!-- 页面搜索 -->
-			<div class="search" action="">
-				<form action="get" >		
-					<input type="text" class="searchInput">
-					<input type="button" class="searchButton" value="搜索">			
-				</form>
-			</div>	
+			<h1 class="logo">geek</h1>
 			<div class="nav">
 				<ul>
 					<li><a href='/'>首页</a></li>

@@ -1,11 +1,12 @@
 var express = require('express')
-  , routes = require('./routes')
+  , routes = require('./routes/index.js')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose')
-  , User = require('./models/user')
-  , Article = require('./models/article')
+  // , User = require('./models/user')
+  // , Article = require('./models/article')
   , _ = require('underscore')
+  , flash = require('connect-flash')
   , mongoStore = require('connect-mongo')(express)
   , path = require('path');
 // 
@@ -16,9 +17,10 @@ var app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
+  app.set('views', __dirname + '/app/views');
   app.set('view engine', 'ejs');
-
+  
+  app.use(flash());
   app.use(express.static(path.join(__dirname,'public')))
   app.use(express.favicon());
   app.use(express.logger('dev'));
@@ -32,13 +34,6 @@ app.configure(function(){
     })
   }));
   app.use(express.methodOverride());
-  app.use(function(req,res,next){
-    var _user = req.session.user;
-    app.locals.user=_user;
-       
-    return next()
-  });
-  app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
 

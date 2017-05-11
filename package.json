@@ -13,6 +13,7 @@
   "description": "一个极客论坛社区，前端采用html+css+jQuery，服务端用Node，数据库使用MongonDB",
   "main": "app.js",
   "devDependencies": {
+    "connect-flash": "^0.1.1",
     "mongoose": "^4.9.3"
   },
   "repository": {
