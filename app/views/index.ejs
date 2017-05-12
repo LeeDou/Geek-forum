@@ -1,71 +1,77 @@
 <%- include header %>
 <!--  -->
-  <div class="container">
+  <div class="container" style="min-height:600px;padding-top:20px;">
       <div class="row">
         <div class="col-sm-8 blog-main">
-          <div class="blog-post">
-            <h2 class="blog-post-title">Sample blog post</h2>
-            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-
-            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-            <hr>
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-            <blockquote>
-              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </blockquote>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <h2>Heading</h2>
-            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <h3>Sub-heading</h3>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <pre><code>Example code block</code></pre>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-            <h3>Sub-heading</h3>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            
-            
-            <ol>
-              <li>Vestibulum id ligula porta felis euismod semper.</li>
-              <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-              <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-            </ol>
-            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-          </div><!-- /.blog-post -->
-
-          <div class="blog-post">
-            <h2 class="blog-post-title">Another blog post</h2>
-            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
-
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-            <blockquote>
-              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </blockquote>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-          </div><!-- /.blog-post -->
-
-
-<!--           <nav>
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav> -->
-
+          <% for(var i=article.length-1;i>0;i--) { %>
+						<% var item=article[i] %>
+						<% var lee='item_' + item._id %>					
+	          <div class="blog-post">
+	            <h2 class="blog-post-title"><%= item.title %></h2>
+	            <p class="blog-post-meta">
+		            January 1, 2014 by 
+		            <a href="#"><%= item.author%></a>
+	            </p>
+	            <p><%= item.essayText%></p>
+	            <hr>
+	            <p>
+								<a href="javascript:void(0)" class="">评论</a>
+								<a href="/articleDetail/article?id=<%=item._id %>" class="check">阅读原文</a>
+								<a href="javascript:void(0)" class="del" name="<%=item._id %>" title="<%=item.title %>">删除</a>
+							</p>
+							<div class="comment">
+								<% for( var j=0,len1=comment.length;j<len1;j++ ) {  %>
+								<% if(comment[j].cTitle==item.title) { %>
+									<div class="commentlist">
+									<p class="commentlist">
+										<span class="commentName">
+											<%= comment[j].cAuthor %>：
+										</span>
+										<%= comment[j].content %>
+									</p>	
+									</div>										
+								<% } %>	
+								<% } %>				
+							</div>
+							<div>
+								<form action="/admin/commentlist" method="post" name="comment" role="form">
+									<div class="form-group">
+									<input type="hidden" value="<%= item.title %>" name="comment[cTitle]">
+									<% if (user) { %>
+									<input type="hidden" value="<%= user.name %>" name="comment[cAuthor]">
+									<% } else {%>
+									<input type="hidden" value=" " name="comment[cAuthor]">
+									<% } %>
+									<!-- <textarea rows="1" cols="60" name="comment[content]"></textarea> -->
+									<!-- <input type="reset" name="取消"><input type="submit" name="提交"> -->
+									<input type="text" class="form-control"  placeholder="请输入你的评论" name="comment[content]">
+									</div>
+									<button type="reset" class="btn btn-default">重置</button>
+									<button type="submit" class="btn btn-default">提交</button>
+								</form>
+						  </div>
+	            
+	    
+	          </div><!-- /.blog-post -->
+					<% } %>
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-          <div class="sidebar-module">
-            <h4>Archives</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-            </ol>
-          </div>
+					<div class="sidebar-module sidebar-module-inset">
+						<% if(user) { %>
+						<h4 class="name">姓名:<%=user.name %></h4>
+						<p class="message">消息</p>
+						<p class="publishArticle">发表的文章:</p>
+						<ol>
+							<% for(k=article.length-1;k>=0;k--) { %>
+							   <% if(article[k].author == user.name) { %>
+							     	<li><%= article[k].title%></li>
+							   <% } %>
+							<% } %>
+						</ol>
+						<% } %>	
+					</div>
+
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
@@ -86,66 +92,5 @@
       <p>
         <a href="#">Back to top</a>
       </p>
-    </footer>
-
-<!--  -->
-	<div class="Mcontent jumbotron"" id="Mcontent" style="min-height:600px;">
-		<div class="main">
-			<div class="article">
-			    <% for( i=article.length-1;i>0;i--) { %>
-				<% item=article[i] %>
-				<% lee='item_' + item._id %>
-				<div id="<%=lee %>" class='<%=lee %>'>
-					<h2 class="essay"><%= item.title %></h2>
-					<span class="time">2016/3/30</span>
-					<span class="author">来自：<%= item.author%></span>
-					<p class="Atext"><%= item.essayText%></p>
-					<div class="feedmeta">
-						<a href="javascript:void(0)" class="">评论</a>
-						<a href="/articleDetail/article?id=<%=item._id %>" class="check">阅读原文</a>
-						<a href="javascript:void(0)" class="del" name="<%=item._id %>" title="<%=item.title %>">删除</a>
-					</div>
-					
-					<div class="comment">
-						<% for(j=0,len1=comment.length;j<len1;j++ ) {  %>
-						<% if(comment[j].cTitle==item.title) { %>
-							
-							<div class="commentlist">
-								<i class="commentName"><%= comment[j].cAuthor %>：</i><p class="commentText"><%= comment[j].content %></p>
-							</div>	
-							
-						<% } %>	
-						<% } %>				
-					</div>
-					<div class="textarea">
-						<form action="/admin/commentlist" method="post" name="comment">
-							<input type="hidden" value="<%= item.title %>" name="comment[cTitle]">
-							<% if (user) { %>
-							<input type="hidden" value="<%= user.name %>" name="comment[cAuthor]">
-							<% } else {%>
-							<input type="hidden" value=" " name="comment[cAuthor]">
-							<% } %>
-							<textarea rows="2" cols="60" name="comment[content]"></textarea>
-							<input type="reset" name="取消"><input type="submit" name="提交">
-						</form>
-					</div>
-				</div>	
-				<% } %>				
-			</div>	
-		</div>
-		<div class="information">	
-			<% if(user) { %>
-			<p class="name">姓名:<%=user.name %></p>
-			<p class="message">消息</p>
-			<p class="publishArticle">发表的文章:</p>
-			<ol>
-				<% for(k=article.length-1;k>=0;k--) { %>
-				   <% if(article[k].author == user.name) { %>
-				     	<li><%= article[k].title%></li>
-				   <% } %>
-				<% } %>
-			</ol>
-			<% } %>	
-		</div>
-	</div>			
+    </footer>	
 <%- include botton %>	
