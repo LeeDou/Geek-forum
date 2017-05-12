@@ -1,15 +1,14 @@
 <%- include header %>
-
-	<div class="Mcontent" id="Mcontent">
+	<div class="container" style="min-height:620px;">
 		<div class="Mmain" style="min-height:400px">
 				<h3 class="articleTitle"><%=articles.title %></h3>
-			    <div class="essayMessage">		
-				<a href="#">发表时间:</a>
-				<a href="#">作者：<%=articles.author %></a>
-			    </div>
-			    <div calss='essayDetail'>
-				<%=articles.essayText %>	
-			    </div>
+			  <div class="essayMessage">		
+					<a href="#">发表时间:</a>
+					<a href="#">作者：<%=articles.author %></a>
+			  </div>
+			  <div calss='essayDetail'>
+					<%=articles.essayText %>	
+			  </div>
 		</div>	    
 	</div>	
 <%- include botton %>

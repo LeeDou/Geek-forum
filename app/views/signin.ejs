@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>登录</title>
-</head>
-<body>
-	<div class="Scontent">
-		<h1>登录</h1>
-		<div class="singIn">
-			<form action="/admin/signin" method="post" name="user">
-				姓名<input type="text" name="user[name]" placeholder="输入你的昵称"><br />
-				密码<input type="password" name="user[password]" placeholder="输入密码"><br />
-				<input type="reset" name="取消"><input type="submit" name="提交">
-
-			</form>
-		
-		</div>
+<%- include header %>
+	<div class="container" style="min-height:620px; max-width:600px; ">
+			<form action="/admin/signin" method="post" name="user" role="form">
+			  <h3 style="text-align:center;">登录</h3>
+			  <div class="form-group">
+					<label for="name">姓名</label>
+					<input type="text" name="user[name]" class="form-control" id="name" placeholder="输入你的昵称">
+				</div>
+				<div class="form-group">
+					<label for="password">密码</label>
+					<input type="password" name="user[password]" class="form-control" id="password" placeholder="输入密码">
+				</div>
+				<button type="reset" class="btn btn-default">取消</button>
+				<button type="submit" class="btn btn-default">提交</button>
+			</form>				
 	</div>
-	
-</body>
-</html>
+<%- include botton %>	

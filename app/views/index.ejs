@@ -1,5 +1,4 @@
 <%- include header %>
-<!--  -->
   <div class="container" style="min-height:600px;padding-top:20px;">
       <div class="row">
         <div class="col-sm-8 blog-main">
@@ -10,10 +9,10 @@
 	            <h2 class="blog-post-title"><%= item.title %></h2>
 	            <p class="blog-post-meta">
 		            January 1, 2014 by 
-		            <a href="#"><%= item.author%></a>
+		            <a href="javascript:void(0)"><%= item.author%></a>
 	            </p>
 	            <p><%= item.essayText%></p>
-	            <hr>
+	            <!-- <hr> -->
 	            <p>
 								<a href="javascript:void(0)" class="">评论</a>
 								<a href="/articleDetail/article?id=<%=item._id %>" class="check">阅读原文</a>
@@ -42,20 +41,16 @@
 									<% } else {%>
 									<input type="hidden" value=" " name="comment[cAuthor]">
 									<% } %>
-									<!-- <textarea rows="1" cols="60" name="comment[content]"></textarea> -->
-									<!-- <input type="reset" name="取消"><input type="submit" name="提交"> -->
-									<input type="text" class="form-control"  placeholder="请输入你的评论" name="comment[content]">
+									<input type="text" class="form-control"  placeholder="你的评论" name="comment[content]">
 									</div>
 									<button type="reset" class="btn btn-default">重置</button>
 									<button type="submit" class="btn btn-default">提交</button>
 								</form>
 						  </div>
-	            
-	    
+						  <hr>	    
 	          </div><!-- /.blog-post -->
 					<% } %>
         </div><!-- /.blog-main -->
-
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 					<div class="sidebar-module sidebar-module-inset">
 						<% if(user) { %>
@@ -63,7 +58,7 @@
 						<p class="message">消息</p>
 						<p class="publishArticle">发表的文章:</p>
 						<ol>
-							<% for(k=article.length-1;k>=0;k--) { %>
+							<% for(var k=article.length-1;k>=0;k--) { %>
 							   <% if(article[k].author == user.name) { %>
 							     	<li><%= article[k].title%></li>
 							   <% } %>
@@ -71,7 +66,6 @@
 						</ol>
 						<% } %>	
 					</div>
-
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
@@ -81,16 +75,7 @@
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
-
-      </div>
-      <!-- /.row -->
-
-    </div><!-- /.container -->
-
-    <footer class="blog-footer">
-      <p>Blog template built  by <a href="https://github.com/LeeDou">@kantle</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>	
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container -->  	
 <%- include botton %>	
