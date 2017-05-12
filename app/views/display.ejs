@@ -1,10 +1,19 @@
 <%- include header%>
     <div class="container" style="min-height:620px;">
       <h1>发表文章</h1>
-      <form action="/admin/displayArticle" method= "post" name="article">
-  	    文章名称：<input type="text" name="article[title]"><br />    
-  	    文章内容：<textarea name="article[essayText]" rows="20" cols="60"></textarea>  <br />
-  	    <input type="reset" name="重置"> &nbsp <input type="submit" name="提交">
+      <form action="/admin/displayArticle" method= "post" name="article" role="form">
+      	<div class="form-group">
+	  	    <label for="title">文章名称：</label>
+	  	    <input type="text" name="article[title]" id="title" class="form-control" placeholder="输入文章的标题">  
+	  	    
+	  	    <!-- <input type="reset" name="重置"> &nbsp <input type="submit" name="提交"> -->
+	  	</div> 
+	  	<div class="form-group">
+	  		<label for="essay">文章内容：</label>
+	  	    <textarea name="article[essayText]" rows="10" id="essay" class="form-control" placeholder="文章内容"></textarea>
+	  	</div> 
+	  	<button type="reset" class="btn btn-default">重置</button>
+	  	<button type="submit" class="btn btn-default">提交</button>  
       </form>
     </div>
       
