@@ -1,5 +1,5 @@
 express# Geek-forum
-一个极客论坛社区，前端采用html+css+jQuery+boostrap，服务端用Node(express)，数据库使用MongonDB
+一个极客论坛社区，前端采用html+css+jQuery+boostrap，服务端用Node(express)，数据库使用MongonDB，使用grunt实现流程化操作。
 
 # 页面功能
 - 论坛首页
