@@ -17,5 +17,8 @@ express# Geek-forum
 经过对自身以及技术方面的考虑，最终决定采用 Node.js 、 MongoDB、 Express 的开发环境
 
 
+> 由于电脑更换系统，bcrypt安装包安装出现问题，故换成了bcryptjs成功解决了bcrypt安装包的问题。具体解释参考：http://cnodejs.org/topic/53040bc95366a72a2c2128b9
+
+
 
 
