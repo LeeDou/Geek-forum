@@ -6,6 +6,7 @@
     "start": "node app"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "*",
     "express": "3.0.6",
     "underscore": "^1.8.3"
@@ -14,6 +15,7 @@
   "main": "app.js",
   "devDependencies": {
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^1.3.2",
     "mongoose": "^4.9.3"
   },
   "repository": {
